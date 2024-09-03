@@ -1,3 +1,7 @@
+<h1 align="center">Segei Zaharov <a href="https://daniilshat.ru/" target="_blank">Daniil</a> 
+<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
+<h3 align="center">Data Scientist 🇷🇺</h3>
+
 <h1 align="left">Segei Zaharov<br</h1>
 <h3 align="left">Data Scientist<br><br>Samara, Russia | svzaharovsv@gmail.com |</h3>
 ###
