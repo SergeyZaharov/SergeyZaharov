@@ -1,4 +1,4 @@
-<h2 align="left"># Segei Zaharov<br><br>Data Scientist<br><br>Samara, Russia | svzaharovsv@gmail.com |</h2>
+<h2 align="left">#Segei Zaharov<br><br>Data Scientist<br><br>Samara, Russia | svzaharovsv@gmail.com |</h2>
 
 ###
 
