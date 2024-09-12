@@ -2,31 +2,33 @@ name: "generate-snake-game-from-github-contribution-grid"
 description: "Generates a snake game from a GitHub user contributions grid. Output the animation as gif or svg"
 author: "platane"
 
-runs:
-  using: docker
-  image: docker://platane/snk@sha256:1c8a0b51a75ad8cf36b7defddd2187bdbb92bbbb5521a9e6cc5df795b00fc590
+on:
+  schedule:
+    # Runs every 6 hours
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
 
-inputs:
-  github_user_name:
-    description: "GitHub user name"
-    required: true
-  github_token:
-    description: "GitHub token used to fetch the contribution calendar. Defaults to the action token if empty."
-    required: false
-    default: ${{ github.token }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-outputs:
-  description: |
-    List of files to generate.
-    One file per line. Each output can be customized with options as a query string.
-    Supported query string options:
-    - palette:      A preset of color, one of [github, github-dark, github-light]
-    - color_snake:  Color of the snake
-    - color_dots:   Comma-separated list of dots color.
-                    The first one is 0 contribution, then it goes from the low contribution to the highest.
-                    Exactly 5 colors are expected.
-    Example:
-      outputs: |
-        dark.svg?palette=github-dark&color_snake=blue
-        light.svg?palette=github-light&color_snake=#7845ab
-        ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Generate Snake
+        uses: Platane/snk@v2.0.0
+        with:
+          github_user_name: SergeyZaharov
+          output: dist/github-contribution-grid-snake.svg
+          # Optional parameters for customization
+          palette: github-light
+          color_snake: "#7845ab"
+          color_dots: "#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9"
+
+      - name: Push the content to GitHub
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: output
