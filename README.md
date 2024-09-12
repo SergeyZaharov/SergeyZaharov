@@ -57,8 +57,9 @@
 <img src="https://raw.githubusercontent.com/SergeyZaharov/SergeyZaharov/output/snake.svg" alt="Snake animation" />
 
 ###
-
+<img src="https://raw.githubusercontent.com/SergeyZaharov/SergeyZaharov/output/snake.svg" alt="Snake animation" />
 ![github contribution grid snake animation](https://github.com/SergeyZaharov/SergeyZaharov/blob/output/github-contribution-grid-snake.svg)
+
 
 ###
 
