@@ -18,7 +18,7 @@ jobs:
       - name: Generate Snake
         uses: Platane/snk@v2.0.0
         with:
-          github_user_name: YOUR_USERNAME
+          github_user_name: SergeyZaharov
           output: dist/github-contribution-grid-snake.svg
 
       - name: Push the content to GitHub
