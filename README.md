@@ -4,7 +4,7 @@
 ###
 
 <div align="left">
-  <a href="https://discordapp.com/users/dtatarintsev" target="_blank">
+  <a href="https://discordapp.com/users/1217021454496038963" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="discord logo"  />
   </a>
   <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
