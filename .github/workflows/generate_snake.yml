@@ -2,7 +2,6 @@ name: Generate Snake
 
 on:
   schedule:
-    # Runs every 6 hours
     - cron: "0 */6 * * *"
   workflow_dispatch:
 
@@ -14,25 +13,21 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      # Generate snake game from a GitHub user contributions graph
       - name: Generate Snake
         uses: Platane/snk@v2.0.0
         with:
           github_user_name: SergeyZaharov
           output: dist/github-contribution-grid-snake.svg
 
-      - name: Create output branch if not exists
-        run: |
-          git fetch origin
-          git checkout -b output || git checkout output
-
       - name: Commit and Push changes
         run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
           git add ./dist/github-contribution-grid-snake.svg
           git commit -m "Update snake animation"
           git push origin output
 
-      - name: Push the content to GitHub
+      - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
