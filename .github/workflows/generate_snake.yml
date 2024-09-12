@@ -14,12 +14,23 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      # Generates a snake game from a github user contributions graph
+      # Generate snake game from a GitHub user contributions graph
       - name: Generate Snake
         uses: Platane/snk@v2.0.0
         with:
           github_user_name: SergeyZaharov
           output: dist/github-contribution-grid-snake.svg
+
+      - name: Create output branch if not exists
+        run: |
+          git fetch origin
+          git checkout -b output || git checkout output
+
+      - name: Commit and Push changes
+        run: |
+          git add ./dist/github-contribution-grid-snake.svg
+          git commit -m "Update snake animation"
+          git push origin output
 
       - name: Push the content to GitHub
         uses: peaceiris/actions-gh-pages@v3
